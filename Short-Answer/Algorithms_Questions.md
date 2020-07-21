@@ -13,9 +13,9 @@ a)  a = 0
 
 ```
 b)  sum = 0
-    for i in range(n):    # will run n times - O(n) * O(1) * O(n) = O(n^2)
+    for i in range(n):    # will run n times - O(n) * O(1) * O(n) = O(n * log(n))
       j = 1               # O(1)
-      while j < n:        # will run n times - O(n) * O(1) * O(1) = O(n)
+      while j < n:        # will run n times - O(log(n)) * O(1) * O(1) = O(n)
         j *= 2            # O(1)
         sum += 1          # O(1)
 ```

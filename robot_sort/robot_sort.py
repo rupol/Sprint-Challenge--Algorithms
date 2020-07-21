@@ -104,25 +104,28 @@ class SortingRobot:
         self.swap_item()
         # while the light is on
         while self.light_is_on():
+            # find the lowest value item
             while self.move_right():
                 # compare the current item with the item on its right
                 # if the held item's value is larger
-                if self.compare_item() > 0:
+                if self.compare_item() == 1:
                     # swap the held item and the item in front of the robot
                     # you are now holding the smaller item
                     self.swap_item()
-            # if you are all the way at the right and either item is none
+            # if you are all the way at the right and the item at that position is none
             if self.can_move_right() == False and self.compare_item() == None:
                 # swap item
                 self.swap_item()
                 # you're sorted turn the robot off
                 self.set_light_off()
-                break
+            # take the smallest item and move to the left
             else:
                 while self.move_left():
-                    # if either item is none
+                    # if either item is none (empty spot)
                     if self.compare_item() == None:
+                        # replace smallest item with empty spot
                         self.swap_item()
+                        # pick up the item to the right to start the next search for the smallest item
                         self.move_right()
                         self.swap_item()
                         break
